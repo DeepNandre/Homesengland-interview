@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing Analytics Dashboard | Homes England</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Additional styles to fix navigation and about section */
+        .main-nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .main-nav li {
+            list-style: none;
+            margin-left: 40px;
+        }
+        
+        .main-nav li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 10px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .main-nav li a:hover {
+            color: var(--primary);
+        }
+        
+        .main-nav li a.active {
+            color: var(--primary);
+        }
+        
+        .main-nav li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 20px;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            text-align: left;
+        }
+        
+        .about-list {
+            margin: 30px 0;
+            padding-left: 20px;
+        }
+        
+        .about-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .about-list li::before {
+            content: '•';
+            color: var(--primary);
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .about-list li strong {
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+        
+        .pdf-container {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .pdf-download {
+            text-align: center;
+            margin: 20px 0 40px;
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/homes-england-logo.png" alt="Homes England Logo" style="height: 50px;">
+            </div>
+            <nav>
+                <ul class="main-nav">
+                    <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                    <li><a href="#insights" class="nav-link">Key Insights</a></li>
+                    <li><a href="#methodology" class="nav-link">Methodology</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Housing Analytics Dashboard</h1>
+            <p>Data-driven insights for better housing decisions</p>
+            <a href="#dashboard" class="btn-primary">Explore Dashboard</a>
+        </div>
+    </section>
+
+    <section id="dashboard" class="dashboard-section">
+        <div class="container">
+            <h2>Interactive Dashboard</h2>
+            <p>Explore housing data across England with our analytics dashboard.</p>
+            
+            <div class="dashboard-container">
+                <!-- PDF Viewer -->
+                <div class="pdf-container">
+                    <object
+                        data="PowerBI_Housing_Data_2017_2022.pdf"
+                        type="application/pdf"
+                        width="100%"
+                        height="600px">
+                        <p>It appears your browser doesn't support embedded PDFs. 
+                           <a href="PowerBI_Housing_Data_2017_2022.pdf" target="_blank">Click here to download the PDF</a>.</p>
+                    </object>
+                </div>
+                
+                <!-- Download button -->
+                <div class="pdf-download">
+                    <a href="PowerBI_Housing_Data_2017_2022.pdf" download class="btn-secondary">
+                        <i class="fas fa-download"></i> Download Dashboard PDF
+                    </a>
+                </div>
+            </div>
+            
+            <div class="dashboard-features">
+                <div class="feature">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Comprehensive Visualizations</h3>
+                    <p>Multiple chart types showing housing trends across regions</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Geographic Analysis</h3>
+                    <p>Regional comparisons of housing delivery and affordability</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Downloadable Format</h3>
+                    <p>Access the dashboard offline for presentations and meetings</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="insights" class="insights-section">
+        <div class="container">
+            <h2>Key Insights</h2>
+            
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Housing Delivery</h3>
+                    <p>Analysis of housing completions across regions shows a 15% increase in affordable housing delivery in the North West.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Market Trends</h3>
+                    <p>Predictive modeling suggests continued growth in demand for mixed-use developments in urban regeneration zones.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-pound-sign"></i>
+                    </div>
+                    <h3>Investment Impact</h3>
+                    <p>For every £1M invested in infrastructure, data shows an average of 120 new homes are enabled within 3 years.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Regional Analysis</h3>
+                    <p>Geographic analysis identifies 5 key opportunity areas where housing need aligns with available land resources.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="methodology" class="methodology-section">
+        <div class="container">
+            <h2>Methodology</h2>
+            <div class="methodology-content">
+                <div class="methodology-text">
+                    <p>This dashboard combines data from multiple authoritative sources to provide a comprehensive view of housing trends and opportunities:</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Office for National Statistics housing data</li>
+                        <li><i class="fas fa-check-circle"></i> Land Registry price paid data</li>
+                        <li><i class="fas fa-check-circle"></i> Homes England investment and outcome data</li>
+                        <li><i class="fas fa-check-circle"></i> Local authority planning and housing delivery data</li>
+                    </ul>
+                    <p>Advanced analytics techniques applied include:</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Time series forecasting for housing delivery projections</li>
+                        <li><i class="fas fa-check-circle"></i> Geospatial analysis for opportunity identification</li>
+                        <li><i class="fas fa-check-circle"></i> Correlation analysis between investment and outcomes</li>
+                        <li><i class="fas fa-check-circle"></i> Scenario modeling for policy impact assessment</li>
+                    </ul>
+                </div>
+                <div class="methodology-image">
+                    <img src="images/data-flow.png" alt="Data Methodology Flow" style="max-width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About This Project</h2>
+            <div class="about-content">
+                <p>This interactive dashboard was developed to demonstrate how data analytics can support Homes England's mission to accelerate housing delivery and improve affordability across England.</p>
+                
+                <p>By transforming complex housing data into accessible insights, this tool enables strategic decision-making at all levels of the organization.</p>
+                
+                <p>The dashboard is designed to be:</p>
+                <ul class="about-list">
+                    <li><strong>Accessible</strong> - Usable by both technical and non-technical stakeholders</li>
+                    <li><strong>Actionable</strong> - Providing clear insights that can inform policy and investment decisions</li>
+                    <li><strong>Adaptable</strong> - Capable of incorporating new data sources as they become available</li>
+                    <li><strong>Accurate</strong> - Built on reliable data with transparent methodology</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/homes-england-logo-white.png" alt="Homes England Logo" style="height: 50px; margin-bottom: 20px;">
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#insights">Key Insights</a></li>
+                        <li><a href="#methodology">Methodology</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> 23685656@stu.mmu.ac.uk</p>
+                    <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/deep-nandre5">Your Profile</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 | Created for Homes England Graduate Programme Interview</p>
+                <p>This is a demonstration project and not officially affiliated with Homes England.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Updated script to fix navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('.nav-link, .footer-links a, .btn-primary');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Only apply to links that point to an ID on the page
+                    const targetId = this.getAttribute('href');
+                    if(targetId && targetId.startsWith('#')) {
+                        e.preventDefault();
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if(targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80, // Adjust for header height
+                                behavior: 'smooth'
+                            });
+                            
+                            // Update active state in navigation
+                            document.querySelectorAll('.nav-link').forEach(navLink => {
+                                navLink.classList.remove('active');
+                            });
+                            
+                            this.classList.add('active');
+                        }
+                    }
+                });
+            });
+            
+            // Set active menu item based on scroll position
+            function setActiveNavItem() {
+                const sections = document.querySelectorAll('section[id]');
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            // Set active on page load
+            setActiveNavItem();
+            
+            // Set active on scroll
+            window.addEventListener('scroll', setActiveNavItem);
+        });
+    </script>
+</body>
+</html>
